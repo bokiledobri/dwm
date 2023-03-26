@@ -78,9 +78,12 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_b,      spawn,          {.v = bravecmd } },
 	{ MODKEY,                       XK_n,      spawn,          {.v = neovidecmd } },
 	{ MODKEY,                       XK_z,      spawn,          {.v = zathuracmd } },
+	{ MODKEY,             XK_s,      spawn,      SHCMD("import -window root ~/Pictures/Screenshots/\"$(date)\".jpg") },
 	{ MODKEY,                       XK_e,      spawn,          {.v = emacsclientcmd } },
-	{ MODKEY,                       XK_h,      spawn,          {.v = filescmd } },
+	{ MODKEY,                       XK_p,      spawn,          {.v = filescmd } },
 	{ MODKEY,                       XK_f,      spawn,          {.v = firefox } },
+	{ MODKEY,                       XK_Up,      spawn,          SHCMD("pactl -- set-sink-volume 0 +10%") },
+	{ MODKEY,                       XK_Down,      spawn,          SHCMD("pactl -- set-sink-volume 0 -10%") },
 	{ MODKEY,			XK_Insert,	spawn,		SHCMD("xdotool type $(grep -v '^#' ~/bookmarks | dmenu -i -l 50 | cut -d' ' -f1)") },
 	{ MODKEY,			XK_g,	spawn,		SHCMD("xdotool type $(grep -v '^#' ~/srbska | dmenu -i -l 50 | cut -d' ' -f1)") },
 	{ MODKEY,			XK_o,   spawn,		SHCMD("xdg-open $(grep -v '^#' ~/bookmarks | dmenu -i -l 50 | cut -d' ' -f1)") },
@@ -116,6 +119,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
+
 
 /* button definitions */
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
